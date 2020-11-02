@@ -1,0 +1,56 @@
+package com.faculty.domain;
+
+import java.util.Set;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+
+@Entity
+public class Student extends User {
+
+	@OneToMany(fetch = FetchType.EAGER)
+	private Set<Transcript> transcript;
+
+	private String idNumber;
+
+	private String degree;
+	private String field;
+
+	public Set<Transcript> getTranscript() {
+		return transcript;
+	}
+
+	public void setTranscript(Set<Transcript> transcript) {
+		this.transcript = transcript;
+	}
+
+	public void addTranscript(Transcript transcript) {
+		this.transcript.add(transcript);
+	}
+
+	public String getDegree() {
+		return degree;
+	}
+
+	public void setDegree(String degree) {
+		this.degree = degree;
+	}
+
+	public String getField() {
+		return field;
+	}
+
+	public void setField(String field) {
+		this.field = field;
+	}
+
+	public String getIdNumber() {
+		return idNumber;
+	}
+
+	public void setIdNumber(String idNumber) {
+		this.idNumber = idNumber;
+	}
+
+}

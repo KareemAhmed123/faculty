@@ -1,0 +1,6 @@
+spring.jpa.hibernate.ddl-auto=create-drop
+spring.datasource.url=jdbc:postgresql://localhost/MUMS
+spring.datasource.username=postgres
+spring.datasource.password=cons.guilt
+spring.jpa.properties.hibernate.dialect =org.hibernate.dialect.PostgreSQLDialect
+logging.level.*=OFF

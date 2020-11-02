@@ -1,0 +1,9 @@
+package com.faculty.repository;
+
+import org.springframework.data.repository.CrudRepository;
+
+import com.faulty.domain.Faculty;
+
+public interface FacultyRepository extends CrudRepository<Faculty, UUID>{
+	
+}

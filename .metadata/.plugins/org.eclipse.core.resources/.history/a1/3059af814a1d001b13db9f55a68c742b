@@ -1,0 +1,5 @@
+package com.faulty.domain;
+
+public enum InstructionalUnitType {
+	LECTURE,TUTORIAL,LAB
+}

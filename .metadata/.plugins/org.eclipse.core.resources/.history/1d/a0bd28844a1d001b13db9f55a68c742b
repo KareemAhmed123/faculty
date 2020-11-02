@@ -1,0 +1,5 @@
+package com.fadulty.domain;
+
+public enum StudentStatus {
+UNDERGRAD,MASTER,DOCTORATE,GRADUATE
+}

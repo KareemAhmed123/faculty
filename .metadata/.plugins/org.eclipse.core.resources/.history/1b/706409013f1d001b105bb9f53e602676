@@ -1,0 +1,5 @@
+package com.faculty.api;
+
+public class CourseController {
+
+}

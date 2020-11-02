@@ -1,0 +1,97 @@
+package edu.mum.domain;
+
+import java.util.List;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Table(name = "course")
+public class Course {
+	@Id
+	@Column(name = "id")
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
+
+	@Column(name = "title")
+	private String title;
+
+	@Column(name = "course_id")
+	private int courseId = 400; // from string to int
+
+	@Column(name = "credit_hour")
+	private int creditHour = 2;
+
+	@Column(name = "description", length = 1024)
+	private String description;
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "prerequisite_id")
+	private Course prerequisite;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public int getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(int courseId) {
+		this.courseId = courseId;
+	}
+
+	public int getCreditHour() {
+		return creditHour;
+	}
+
+	public void setCreditHour(int creditHour) {
+		this.creditHour = creditHour;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Course getPrerequisite() {
+		return prerequisite;
+	}
+
+	public void setPrerequisite(Course prerequisite) {
+		this.prerequisite = prerequisite;
+	}
+
+	@Override
+	public String toString() {
+		return this.courseId + " - " + this.getTitle();
+	}
+
+}

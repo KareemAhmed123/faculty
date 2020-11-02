@@ -1,0 +1,127 @@
+package com.faculty.domain;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import java.util.List;
+@Entity
+@Table(name = "course")
+public class Course extends AbstractEntity<Course> {
+
+	@Column(name = "title")
+	private String title;
+
+	@Column(name = "course_id")
+	private String courseId = "cs400"; // from string to int
+
+	@Column(name = "credit_hour")
+	private int creditHour = 2;
+
+	@Column(name = "description", length = 1024)
+	private String description;
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
+	@JoinColumn(name = "prerequisite_id")
+	private Course prerequisite;
+
+	private int year;
+
+//	private Practical practical;
+//
+//	private Lecture lecture;
+//
+//	private Tutorial tutorial;
+
+//	private List<Specialization> specialization;
+//
+//	
+//
+//	public List<Specialization> getSpecialization() {
+//		return specialization;
+//	}
+//
+//	public void setSpecialization(List<Specialization> specialization) {
+//		this.specialization = specialization;
+//	}
+
+	public int getYear() {
+		return year;
+	}
+
+	public void setYear(int year) {
+		this.year = year;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getCourseId() {
+		return courseId;
+	}
+
+	public void setCourseId(String courseId) {
+		this.courseId = courseId;
+	}
+
+	public int getCreditHour() {
+		return creditHour;
+	}
+
+	public void setCreditHour(int creditHour) {
+		this.creditHour = creditHour;
+	}
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
+
+	public Course getPrerequisite() {
+		return prerequisite;
+	}
+
+	public void setPrerequisite(Course prerequisite) {
+		this.prerequisite = prerequisite;
+	}
+
+//	public Practical getPractical() {
+//		return practical;
+//	}
+//
+//	public void setPractical(Practical practical) {
+//		this.practical = practical;
+//	}
+//
+//	public Lecture getLecture() {
+//		return lecture;
+//	}
+//
+//	public void setLecture(Lecture lecture) {
+//		this.lecture = lecture;
+//	}
+//
+//	public Tutorial getTutorial() {
+//		return tutorial;
+//	}
+//
+//	public void setTutorial(Tutorial tutorial) {
+//		this.tutorial = tutorial;
+//	}
+
+	@Override
+	public String toString() {
+		return this.courseId + " - " + this.getTitle();
+	}
+
+}

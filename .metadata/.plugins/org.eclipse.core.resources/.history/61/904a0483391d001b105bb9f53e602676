@@ -1,0 +1,8 @@
+package com.faulty.domain;
+
+import javax.persistence.Entity;
+
+@Entity
+public class StudentInstructionalUnit extends InstructionalUnit {
+	private Student student;
+}
